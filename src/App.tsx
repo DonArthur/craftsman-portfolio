@@ -227,6 +227,64 @@ function ContactDoorItem({ onClick, isFocused }: { onClick: () => void, isFocuse
   );
 }
 
+// --- 3F. NEW ITEM: THE CRAFTSMAN'S RUG ---
+function WorkshopRug() {
+  return (
+    <group position={[2.5, -0.49, 2.5]}>
+      {/* Main Rug Body - A deep vintage red/brown */}
+      <mesh receiveShadow position={[-2.5, 0.01, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[7.5, 3.5]} />
+        <meshStandardMaterial color="#5e2720" roughness={1} />
+      </mesh>
+      
+      {/* Rug Inner Border for that patterned look */}
+      <mesh receiveShadow position={[-2.5, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[7.1, 3.1]} />
+        <meshStandardMaterial color="#4a1e18" roughness={1} />
+      </mesh>
+    </group>
+  );
+}
+
+// --- 3G. NEW ITEM: THE LOW-POLY OFFICE PLANT ---
+function OfficePlant() {
+  return (
+    <group position={[-4, 0, 2]}>
+      {/* Terracotta Pot (Octagonal for a low-poly look) */}
+      <mesh position={[0, 0.3, 0]} castShadow receiveShadow>
+        <cylinderGeometry args={[0.3, 0.2, 0.6, 8]} /> 
+        <meshStandardMaterial color="#b55d45" roughness={0.9} />
+      </mesh>
+      
+      {/* Soil */}
+      <mesh position={[0, 0.58, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.28, 8]} />
+        <meshStandardMaterial color="#2b1a10" />
+      </mesh>
+
+      {/* Low-Poly Foliage Cluster */}
+      <group position={[0, 0.8, 0]}>
+        <mesh position={[0, 0.2, 0]} castShadow>
+          <dodecahedronGeometry args={[0.5]} />
+          <meshStandardMaterial color="#2d5a27" roughness={0.7} />
+        </mesh>
+        <mesh position={[0.3, 0, 0.2]} castShadow>
+          <dodecahedronGeometry args={[0.3]} />
+          <meshStandardMaterial color="#3a7332" roughness={0.7} />
+        </mesh>
+        <mesh position={[-0.2, -0.1, 0.3]} castShadow>
+          <dodecahedronGeometry args={[0.25]} />
+          <meshStandardMaterial color="#428239" roughness={0.7} />
+        </mesh>
+        <mesh position={[-0.3, 0.1, -0.2]} castShadow>
+          <dodecahedronGeometry args={[0.35]} />
+          <meshStandardMaterial color="#264d21" roughness={0.7} />
+        </mesh>
+      </group>
+    </group>
+  );
+}
+
 // --- 4. MAIN APP COMPONENT ---
 export default function App() {
   const [activeTarget, setActiveTarget] = useState<string | null>(null);
@@ -347,11 +405,11 @@ export default function App() {
         <Float speed={1.5} rotationIntensity={0.03} floatIntensity={0.05}>
           <WorkbenchItem isFocused={activeTarget === 'workbench'} onClick={() => setActiveTarget('workbench')} />
           <TechShelvesItem isFocused={activeTarget === 'shelves'} onClick={() => setActiveTarget('shelves')} />
-          <BlueprintTableItem isFocused={activeTarget === 'blueprint'} onClick={() => setActiveTarget('blueprint')} />
-          
-          {/* THE NEW COMPONENTS */}
+          <BlueprintTableItem isFocused={activeTarget === 'blueprint'} onClick={() => setActiveTarget('blueprint')} />          
           <ToolboxItem isFocused={activeTarget === 'toolbox'} onClick={() => setActiveTarget('toolbox')} />
           <ContactDoorItem isFocused={activeTarget === 'contact'} onClick={() => setActiveTarget('contact')} />
+          <WorkshopRug />
+          <OfficePlant />
         </Float>
       </Canvas>
     </div>

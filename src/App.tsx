@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Html, Float } from '@react-three/drei';
 import * as THREE from 'three';
+import QRCode from 'react-qr-code';
 
 // --- 1. THE RAW CAMERA CONTROLLER (Updated for all 5 stations) ---
 function CameraRig({ activeTarget }: { activeTarget: string | null }) {
@@ -289,14 +290,31 @@ function OfficePlant() {
 export default function App() {
   const [activeTarget, setActiveTarget] = useState<string | null>(null);
 
-  const renderOverlayContent = () => {
+const renderOverlayContent = () => {
     if (activeTarget === 'workbench') {
       return (
         <div className="animate-fade-in">
-          <h2 className="text-3xl font-bold text-amber-500 mb-4">Current Projects</h2>
-          <div className="bg-stone-800/50 p-4 rounded border border-stone-700">
-            <h3 className="text-amber-300 font-bold">Smart Garden Prototype</h3>
-            <p className="text-sm text-stone-400 mt-2">React • Node.js • AWS</p>
+          <h2 className="text-3xl font-bold text-amber-500 mb-4">Experience</h2>
+          <div className="space-y-4 max-h-[70vh] overflow-y-auto pr-2 custom-scrollbar">
+            
+            <div className="bg-stone-800/50 p-4 rounded border border-stone-700">
+              <h3 className="text-amber-300 font-bold">Tata Consultancy Services</h3>
+              <p className="text-xs text-stone-400 mb-2">Insurance Client • 2025 - 2026</p>
+              <p className="text-sm text-stone-300">Built customer-facing onboarding apps, financial workflows, and RBAC admin platforms.</p>
+            </div>
+            
+            <div className="bg-stone-800/50 p-4 rounded border border-stone-700">
+              <h3 className="text-amber-300 font-bold">Maucash (Astra Welab)</h3>
+              <p className="text-xs text-stone-400 mb-2">Fintech • 2022 - 2025</p>
+              <p className="text-sm text-stone-300">Developed customer loan applications and operational dashboards for risk & finance teams.</p>
+            </div>
+            
+            <div className="bg-stone-800/50 p-4 rounded border border-stone-700">
+              <h3 className="text-amber-300 font-bold">Sahassa Panca Manunggal</h3>
+              <p className="text-xs text-stone-400 mb-2">Banking Reporting • 2019 - 2021</p>
+              <p className="text-sm text-stone-300">Developed reporting platforms for multinational banks using Vue.js, .NET Core, and SQL Server.</p>
+            </div>
+
           </div>
         </div>
       );
@@ -307,12 +325,16 @@ export default function App() {
           <h2 className="text-3xl font-bold text-amber-500 mb-4">Tech Stack</h2>
           <div className="space-y-4">
             <div className="bg-stone-800/50 p-4 rounded border-l-4 border-l-sky-400">
-              <h3 className="text-sky-400 font-bold">Frontend Architecture</h3>
-              <p className="text-sm text-stone-400 mt-2">React, TypeScript, Three.js, Tailwind</p>
+              <h3 className="text-sky-400 font-bold">Frontend</h3>
+              <p className="text-sm text-stone-400 mt-2">Vue.js, React.js, Next.js, TypeScript, Tailwind, Ant Design</p>
             </div>
             <div className="bg-stone-800/50 p-4 rounded border-l-4 border-l-green-400">
-              <h3 className="text-green-400 font-bold">Backend Systems</h3>
-              <p className="text-sm text-stone-400 mt-2">Node.js, Express, Python, Docker</p>
+              <h3 className="text-green-400 font-bold">Backend & API</h3>
+              <p className="text-sm text-stone-400 mt-2">ASP.NET Core, Node.js, Express.js, Spring Boot</p>
+            </div>
+            <div className="bg-stone-800/50 p-4 rounded border-l-4 border-l-orange-400">
+              <h3 className="text-orange-400 font-bold">Databases</h3>
+              <p className="text-sm text-stone-400 mt-2">SQL Server, MySQL, MongoDB</p>
             </div>
           </div>
         </div>
@@ -321,11 +343,13 @@ export default function App() {
     if (activeTarget === 'blueprint') {
       return (
         <div className="animate-fade-in">
-          <h2 className="text-3xl font-bold text-amber-500 mb-4">The Architect</h2>
-          <p className="text-stone-300 font-mono mb-6">"Measure twice, cut once."</p>
+          <h2 className="text-3xl font-bold text-amber-500 mb-4">Geraldy Miero</h2>
+          <p className="text-stone-300 font-mono mb-6 border-b border-stone-700 pb-4">Frontend Developer</p>
           <p className="text-stone-400 text-sm leading-relaxed mb-4">
-            I'm a software engineer who treats code like physical craftsmanship. 
-            I build robust architectures that stand the test of time.
+            With 7+ years of experience building enterprise applications in the banking, fintech, and insurance industries.
+          </p>
+          <p className="text-stone-400 text-sm leading-relaxed">
+             I specialize in bridging complex backend architectures with seamless, scalable frontend solutions, taking ownership from feature design through production support.
           </p>
         </div>
       );
@@ -335,13 +359,13 @@ export default function App() {
         <div className="animate-fade-in">
           <h2 className="text-3xl font-bold text-amber-500 mb-4">Proficiencies</h2>
           <p className="text-stone-300 font-mono mb-6 border-b border-stone-700 pb-4">
-            Knowing which tool to pull for the job.
+            Professional Practices
           </p>
           <ul className="space-y-3">
-            <li className="flex items-center text-stone-400"><span className="text-amber-500 mr-2">▸</span> CI/CD Pipelines (GitHub Actions)</li>
-            <li className="flex items-center text-stone-400"><span className="text-amber-500 mr-2">▸</span> Test-Driven Development (Jest/Cypress)</li>
-            <li className="flex items-center text-stone-400"><span className="text-amber-500 mr-2">▸</span> Agile / Scrum Methodologies</li>
-            <li className="flex items-center text-stone-400"><span className="text-amber-500 mr-2">▸</span> Performance Profiling & Optimization</li>
+            <li className="flex items-center text-stone-400"><span className="text-amber-500 mr-2">▸</span> State Management (Pinia, Vuex, Redux)</li>
+            <li className="flex items-center text-stone-400"><span className="text-amber-500 mr-2">▸</span> Agile / Scrum & SDLC</li>
+            <li className="flex items-center text-stone-400"><span className="text-amber-500 mr-2">▸</span> Feature Ownership & Code Review</li>
+            <li className="flex items-center text-stone-400"><span className="text-amber-500 mr-2">▸</span> Git Flow & Production Support</li>
           </ul>
         </div>
       );
@@ -349,23 +373,39 @@ export default function App() {
     if (activeTarget === 'contact') {
       return (
         <div className="animate-fade-in">
-          <h2 className="text-3xl font-bold text-amber-500 mb-4">Drop a Line</h2>
+          <h2 className="text-3xl font-bold text-amber-500 mb-4">Download My CV</h2>
           <p className="text-stone-300 font-mono mb-6 border-b border-stone-700 pb-4">
-            Status: Accepting new commissions.
+            Scan to save a copy directly to your device or click the link below to download.
           </p>
-          <form className="flex flex-col space-y-4">
-            <input type="text" placeholder="Your Name" className="bg-stone-950 border border-stone-700 p-3 rounded text-stone-200 outline-none focus:border-amber-500" />
-            <input type="email" placeholder="Your Email" className="bg-stone-950 border border-stone-700 p-3 rounded text-stone-200 outline-none focus:border-amber-500" />
-            <textarea placeholder="Your Message" rows={4} className="bg-stone-950 border border-stone-700 p-3 rounded text-stone-200 outline-none focus:border-amber-500 resize-none"></textarea>
-            <button type="button" className="bg-amber-600 hover:bg-amber-500 text-stone-950 font-bold py-3 rounded transition-colors">
-              TRANSMIT ORDER
-            </button>
-          </form>
+          <div className="bg-stone-200 p-4 rounded-xl inline-block mb-6 shadow-xl">
+            <QRCode
+              value="https://craftsman-portfolio-livid.vercel.app/CV_Geraldy Miero.pdf"
+              size={180}
+              bgColor="#e7e5e4"
+              fgColor="#1c140d"
+            />
+          </div>
+          <div className="flex flex-col space-y-4">
+             {/* Fallback Direct Download Button */}
+             <a 
+               href="/Geraldy_Miero_CV.pdf" 
+               download="Geraldy_Miero_CV.pdf" 
+               className="bg-amber-600 hover:bg-amber-500 text-stone-950 text-center font-bold py-3 px-6 rounded transition-colors w-[212px]"
+             >
+               DIRECT DOWNLOAD
+             </a>
+             
+             {/* Email Fallback */}
+             <p className="text-sm text-stone-400 mt-2">
+               Or reach out directly:<br/>
+               <a href="mailto:geraldy.miero@gmail.com" className="text-amber-400 hover:underline">
+                 geraldy.miero@gmail.com
+               </a>
+             </p>
+          </div>
           <div className="mt-8 flex space-x-4">
-            {/* Placeholder for social links */}
-            <a href="#" className="text-stone-400 hover:text-amber-400 transition-colors">GitHub</a>
-            <a href="#" className="text-stone-400 hover:text-amber-400 transition-colors">LinkedIn</a>
-            <a href="#" className="text-stone-400 hover:text-amber-400 transition-colors">Twitter</a>
+            <a href="https://github.com/DonArthur" target="_blank" rel="noreferrer" className="text-stone-400 hover:text-amber-400 transition-colors">GitHub</a>
+            <a href="https://www.linkedin.com/in/geraldy-m-07a09815a/" target="_blank" rel="noreferrer" className="text-stone-400 hover:text-amber-400 transition-colors">LinkedIn</a>
           </div>
         </div>
       );

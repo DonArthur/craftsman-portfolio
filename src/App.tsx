@@ -374,39 +374,50 @@ const renderOverlayContent = () => {
       return (
         <div className="animate-fade-in">
           <h2 className="text-3xl font-bold text-amber-500 mb-4">Download My CV</h2>
-          <p className="text-stone-300 font-mono mb-6 border-b border-stone-700 pb-4">
-            Scan to save a copy directly to your device or click the link below to download.
-          </p>
-          <div className="bg-stone-200 p-4 rounded-xl inline-block mb-6 shadow-xl">
-            <QRCode
-              value="https://craftsman-portfolio-livid.vercel.app/CV_Geraldy Miero.pdf"
-              size={180}
-              bgColor="#e7e5e4"
-              fgColor="#1c140d"
-            />
-          </div>
-          <div className="flex flex-col space-y-4">
-             {/* Fallback Direct Download Button */}
-             <a 
-               href="/Geraldy_Miero_CV.pdf" 
-               download="Geraldy_Miero_CV.pdf" 
-               className="bg-amber-600 hover:bg-amber-500 text-stone-950 text-center font-bold py-3 px-6 rounded transition-colors w-[212px]"
-             >
-               DIRECT DOWNLOAD
-             </a>
-             
-             {/* Email Fallback */}
-             <p className="text-sm text-stone-400 mt-2">
-               Or reach out directly:<br/>
-               <a href="mailto:geraldy.miero@gmail.com" className="text-amber-400 hover:underline">
-                 geraldy.miero@gmail.com
+          
+          {/* 🐛 FIX: Added this scrollable wrapper container */}
+          <div className="overflow-y-auto max-h-[70vh] pr-4 pb-12 custom-scrollbar">
+            
+            <p className="text-stone-300 font-mono mb-6 border-b border-stone-700 pb-4">
+              Scan to save a copy directly to your device.
+            </p>
+            
+            {/* The QR Code Container */}
+            <div className="bg-stone-200 p-4 rounded-xl inline-block mb-6 shadow-xl">
+              <QRCode 
+                // ⚠️ Replace this value with your actual deployed website URL later!
+                value="https://your-future-website.vercel.app/Geraldy_Miero_CV.pdf" 
+                size={180} 
+                bgColor="#e7e5e4" 
+                fgColor="#1c140d" 
+              />
+            </div>
+
+            <div className="flex flex-col space-y-4">
+               {/* Fallback Direct Download Button */}
+               <a 
+                 href="/Geraldy_Miero_CV.pdf" 
+                 download="Geraldy_Miero_CV.pdf" 
+                 className="bg-amber-600 hover:bg-amber-500 text-stone-950 text-center font-bold py-3 px-6 rounded transition-colors w-[212px]"
+               >
+                 DIRECT DOWNLOAD
                </a>
-             </p>
-          </div>
-          <div className="mt-8 flex space-x-4">
-            <a href="https://github.com/DonArthur" target="_blank" rel="noreferrer" className="text-stone-400 hover:text-amber-400 transition-colors">GitHub</a>
-            <a href="https://www.linkedin.com/in/geraldy-m-07a09815a/" target="_blank" rel="noreferrer" className="text-stone-400 hover:text-amber-400 transition-colors">LinkedIn</a>
-          </div>
+               
+               {/* Email Fallback */}
+               <p className="text-sm text-stone-400 mt-2">
+                 Or reach out directly:<br/>
+                 <a href="mailto:geraldy.miero@gmail.com" className="text-amber-400 hover:underline">
+                   geraldy.miero@gmail.com
+                 </a>
+               </p>
+            </div>
+
+            <div className="mt-8 flex space-x-4 border-t border-stone-800 pt-6">
+              <a href="https://github.com/DonArthur" target="_blank" rel="noreferrer" className="text-stone-400 hover:text-amber-400 transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/geraldy-m-07a09815a/" target="_blank" rel="noreferrer" className="text-stone-400 hover:text-amber-400 transition-colors">LinkedIn</a>
+            </div>
+
+          </div> {/* End of scrollable wrapper */}
         </div>
       );
     }

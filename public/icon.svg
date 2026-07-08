@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="120" fill="#1c140d" />
+  
+  <circle cx="256" cy="256" r="180" fill="#d97706" opacity="0.1" />
+  <circle cx="256" cy="256" r="140" fill="#d97706" opacity="0.15" />
+  <circle cx="256" cy="256" r="110" fill="#d97706" opacity="0.2" />
+  
+  <polygon points="256,126 376,196 256,266 136,196" fill="#e0a96d" />
+  <polygon points="136,196 256,266 256,406 136,336" fill="#8c6239" />
+  <polygon points="256,266 376,196 376,336 256,406" fill="#4a3326" />
+  
+  <path d="M 216 246 L 166 296 L 216 356" fill="none" stroke="#ffdfa9" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 296 246 L 346 296 L 296 356" fill="none" stroke="#ffdfa9" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 226 226 L 286 166" fill="none" stroke="#ffdfa9" stroke-width="24" stroke-linecap="round" />
+  
+  <circle cx="106" cy="146" r="16" fill="#4ade80" />
+  <circle cx="386" cy="426" r="12" fill="#4ade80" opacity="0.8"/>
+  <circle cx="256" cy="76" r="10" fill="#4ade80" opacity="0.9"/>
+  <circle cx="426" cy="206" r="20" fill="#fde047" opacity="0.9"/>
+  <circle cx="146" cy="436" r="18" fill="#fde047" opacity="0.7"/>
+</svg>

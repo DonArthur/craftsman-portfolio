@@ -124,7 +124,7 @@ function WorkshopRoom({ isNight }: { isNight: boolean }) {
   );
 }
 
-// --- NEW 3. DIEGETIC TOGGLE: THE STANDING LAMP ---
+// --- 3. DIEGETIC TOGGLE: THE STANDING LAMP ---
 function StandingLampItem({ isNight, toggleNight }: { isNight: boolean, toggleNight: () => void }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -386,23 +386,11 @@ export default function App() {
             Side projects, open-source, and UI experiments.
           </p>
           <div className="space-y-4 max-h-[70vh] overflow-y-auto pr-4 pb-12 custom-scrollbar">
-            <a href="#" target="_blank" rel="noreferrer" className="block bg-stone-800/50 hover:bg-stone-700/80 p-4 rounded border border-stone-700 transition-colors">
+            <a href="https://github.com/DonArthur/stack-underflow" target="_blank" rel="noreferrer" className="block bg-stone-800/50 hover:bg-stone-700/80 p-4 rounded border border-stone-700 transition-colors">
               <h3 className="text-amber-300 font-bold flex justify-between items-center">
-                Project Alpha <span>↗</span>
+                Stack Underflow <span>↗</span>
               </h3>
-              <p className="text-sm text-stone-400 mt-1">A real-time dashboard built with Next.js and WebSockets.</p>
-            </a>
-            <a href="#" target="_blank" rel="noreferrer" className="block bg-stone-800/50 hover:bg-stone-700/80 p-4 rounded border border-stone-700 transition-colors">
-              <h3 className="text-amber-300 font-bold flex justify-between items-center">
-                UI Components Library <span>↗</span>
-              </h3>
-              <p className="text-sm text-stone-400 mt-1">An open-source collection of accessible React components.</p>
-            </a>
-            <a href="#" target="_blank" rel="noreferrer" className="block bg-stone-800/50 hover:bg-stone-700/80 p-4 rounded border border-stone-700 transition-colors">
-              <h3 className="text-amber-300 font-bold flex justify-between items-center">
-                CodePen Experiments <span>↗</span>
-              </h3>
-              <p className="text-sm text-stone-400 mt-1">A collection of CSS art and JavaScript micro-interactions.</p>
+              <p className="text-sm text-stone-400 mt-1">A simple React.js Q&A web application project inspired by Stack Overflow with login and user's features such as browse-, post new-, update their own questions, and participate in discussion through comments.</p>
             </a>
           </div>
         </div>
